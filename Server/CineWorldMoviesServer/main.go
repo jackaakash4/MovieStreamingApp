@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/gin-gonic/gin"
+	controller "github.com/jackaakash4/MovieStreamingApp/Server/CineWorldMoviesServer/controllers"
 )
 
 func main() {
@@ -17,7 +18,10 @@ func main() {
 		})
 	})
 
+	router.GET("/movies", controller.GetMovies())
+
 	if err := router.Run(":8080"); err != nil {
+
 		fmt.Println("Error in server: ", err)
 	}
 }
